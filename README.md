@@ -1,5 +1,5 @@
 # Progetto RC - ShareTheMusic
-Progetto per il corso di Reti di Calcolatori 2018/2019, tenuto dal prof. Andrea Vitaletti presso la Sapienza Università di Roma.
+Progetto di Sveva Pepe, Francesco Scotti e Claudia Medaglia per il corso di Reti di Calcolatori 2018/2019, tenuto dal prof. Andrea Vitaletti presso la Sapienza Università di Roma.
 
 # Requisiti
 1. Il servizio REST che implementate (lo chiameremo SERV) deve offrire delle API documentate (e.g. GET /sanlorenzo fornisce tutti i cinema di sanlorenzo)
