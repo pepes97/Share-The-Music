@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it" >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+    *:focus{
+      outline: none;
+    }
+    </style>
+  </head>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <body style="background-image: url(https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80); background-repeat:no-repeat; background-size:cover;">
+
+    <div> <!--Bottone chat pubblica-->
+        <a type="button" id="button" href="http://localhost:3230/socket.io?q=<%= name %>&a=<%= artista%>"class="btn btn-primary" style="margin-left:45%; margin-bottom:1%;margin-top:3%; color:#FFFAF0;"><b>Public Live Chat</b></a>
+    </div>
+    <div> <!--Bottone chat privata-->
+        <a type="button" id="button" href="http://localhost:2000/socket.io?q=<%= name %>"class="btn btn-danger" style="margin-left:45%;margin-bottom:2%; color:#FFFAF0;"><b>Private Live Chat</b></a>
+    </div>
+    <div class="container mt-3" style="background:black; opacity:0.7; border-radious: 20%">
+      <div class="row ">
+
+    <!--Dal file JSON creato nell'app.js, scandisco le righe e stampo i vari concerti dell'artista cercato -->
+
+          <% evento.forEach(function(lista_eventi) { %>
+            <div class="col-lg-4 col-sm-7">
+              <h2 style="margin-bottom: 0; color: #2ecc71; font-size: 175%;"><img src="https://img.icons8.com/ios/31/2ecc71/place-marker.png">&ensp;<b><%= lista_eventi.luogo %></b></h2>
+              <h4 style="color:#3498db; margin-bottom: 0;"><img src="https://img.icons8.com/ios/25/3498db/calendar.png">&ensp;<b> <%= lista_eventi.data %></b></h4>
+              <h4><a id="#coordinate" style="color:#FFFFFF"
+                     onclick="window.open(
+                             'http://localhost:8888/mappe?q=<%= lista_eventi.posto%>&e=<%= lista_eventi.posto %>&d=<%= lista_eventi.data %>&a=<%= artista%>&n=<%= lista_eventi.luogo %>',
+                             'newwindow',
+                             'width=400,height=550');
+                              return false;">
+                    <img src="https://img.icons8.com/ios/28/FFFFFF/google-maps.png"> <b><%= lista_eventi.posto %></b>
+                  </a>
+              </h4>
+            </div>
+          <% }); %>
+
+      </div>
+    </div>
+
+  </body>
+
+
+
+</html>
