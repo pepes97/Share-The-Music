@@ -22,15 +22,5 @@
     "pubblica": "node pubblica.js",
     "privata": "node privata.js",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run pubblica\" \"npm run privata\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/universityigi/pg_rc.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/universityigi/pg_rc/issues"
-  },
-  "homepage": "https://github.com/universityigi/pg_rc#readme"
+  }
 }
