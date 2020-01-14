@@ -92,3 +92,27 @@ identificativo per l'utente loggato, una text area dove inserire il messaggio e 
 Per poter comunicare con un altro utente è necessario però che anche quest'ultimo abbia fatto accesso alla chat privata.
 
 ![Image](img/privata.png)
+
+# Requisiti
+
+1. Installare Docker
+[Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+2. Docker Compose
+[Docker Compose](https://docs.docker.com/compose/install/)
+****
+Nel file docker-compose.yml cambiare tutti i "volumes" con il proprio path, cioè il percorso in
+cui si trova la directory: 
+**"/ path  /ShareTheMusic:/home/node"**
+---
+Esempio
+```bash
+      - /home/sveva/Desktop/University/ShareTheMusic:/home/node
+```
+# Run
+```bash
+docker-compose up
+```
+
+
+
+
