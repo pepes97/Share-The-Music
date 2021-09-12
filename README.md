@@ -69,9 +69,8 @@ If there are no users in a conversation and you accept the default setting, the 
 
 **Private Chat**
 
-La pagina presenta una ChatBox, una text area dove inserire il nickname della persona con cui si vuole comunicare, un bottone
-identificativo per l'utente loggato, una text area dove inserire il messaggio e il bottone d'invio.
-Per poter comunicare con un altro utente è necessario però che anche quest'ultimo abbia fatto accesso alla chat privata.
+The page includes a ChatBox, a text field for entering the nickname of the person with whom you like to communicate, an identification button for logged-in users, a text box for entering the message, and an email button.
+It is necessary to be able to communicate with another user, but this latter has also gained access to a private chat room.
 
 ![Image](img/privata.png)
 
