@@ -1,4 +1,4 @@
-#  Share The Music
+#  Share The Music <img src="https://github.com/pepes97/Share-The-Music/blob/master/portfolio-5.png" width="80" height="45">
 Sveva Pepe, Francesco Scotti, and Claudia Medaglia created a project for Prof. Andrea Vitaletti's Reti di Calcolatori 2018/2019 course at the Sapienza University of Roma. 
 
 # Requirements
