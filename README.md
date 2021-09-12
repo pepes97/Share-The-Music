@@ -1,91 +1,73 @@
-# Progetto RC - ShareTheMusic
-Progetto di Sveva Pepe, Francesco Scotti e Claudia Medaglia per il corso di Reti di Calcolatori 2018/2019, tenuto dal prof. Andrea Vitaletti presso la Sapienza Università di Roma.
+#  Share The Music
+Sveva Pepe, Francesco Scotti, and Claudia Medaglia created a project for Prof. Andrea Vitaletti's Reti di Calcolatori 2018/2019 course at the Sapienza University of Roma. 
 
-# Requisiti
-1. Il servizio REST che implementate (lo chiameremo SERV) deve offrire delle API documentate (e.g. GET /sanlorenzo fornisce tutti i cinema di sanlorenzo)
-2. SERV si deve interfacciare con almeno due servizi REST “esterni”, cioè non su localhost
-3. Almeno uno dei servizi REST esterni deve essere “commerciale” (es: twitter, google, facebook, pubnub, parse, firbase etc)
-4. Almeno uno dei servizi REST esterni deve richiedere oauth
-5. Si devono usare Websocket e/o AMQP (o simili es MQTT)
-6. Il progetto deve essere su GIT (GITHUB, GITLAB ...) e documentato con un README
-7. Le API REST implementate in SERV devono essere documentate su GIT e devono essere validate con un caso di test 
+# Requirements
+1. The REST service you develop (we'll call it SERV) must have documented APIs (for example, GET /sanlorenzo returns all of Sanlorenzo's movies).
+2. SERV must interact with at least two “external” REST services, i.e. not on localhost.
+3. At least one of the external REST services must be commercial (es: twitter, google, facebook, pubnub, parse, firbase etc)
+4. At least one external REST service must request oauth.
+5. Websocket and/or AMQP must be used (o simili es MQTT)
+6. The project must be hosted on GIT (GITHUB, GITLAB, etc.) and documented using a README file.
 
-# Tecnologie Utilizzate
-* REST 1: Spotify (oAuth)
-* REST 2: songkick (API concerti)
-* REST 3: mapbox (API mappe)
-* SocketIO: HTML5 (Chat pubblica e chat privata)
-* Documentazione GitHub: MarkDown
+# Technologies Used 
+* REST 1: Spotify (oAuth) 
+* REST 2: songkick (API concerts) 
+* REST 3: mapbox (API maps) 
+* SocketIO: HTML5 (public and private conversation) 
+* GitHub Documentation: MarkDown 
 
-# Idea del Progetto
-Applicazione che, una volta eseguito il login tramite Spotify, permette all'utente di poter cercare canzoni. Il risultato della
-ricerca (a condizione che la canzone esista) mostrerà all'utente tutte le info riguardanti la canzone cercata, il link di Spotify
-alla canzone e in più, se disponibile, l'utente potrà ascoltarne una preview di 30 secondi.
+# Project Idea
 
-Tramite il bottone "Cerca Concerti", che effettua una chiamata REST all'API di SongKick, si ottiene (se in programma) una lista
-dei concerti relativi all'artista della canzone, con info su città, data e luogo dove si svolgerà il dato evento.
-
-Cliccando sul luogo è possibile, tramite una chiamata REST all'API di MapBox, ottenere un popup di una mappa con un segnaposto
-indicante il luogo dell'evento.
-
-Sempre sulla pagina dei concerti è possibile usufruire di un servizio di chat privata o pubblica, create con l'idea di poter comunicare 
-con gli altri utenti che hanno effettuato l'accesso per accordarsi per la compravendita dei biglietti di un concerto o, semplicemente,
-per organizzarsi per andare insieme al concerto.
+Application that allows users to search for songs after they have logged in using Spotify.
+The search result (if the song exists) will provide the user all relevant information about the song, including a Spotify link to the song and, if available, a 30-second preview.
+By using the "Cerca Concerti" button, which sends a REST request to SongKick's API, you may get a list of concerts related to the artist of the song, complete with information on the city, date, and location of the event. 
+By clicking on the location, a popup of a map with a marker indicating the event's location may be accessed through a MapBox REST API call.
+It is always possible to use a private or public chat service on the concert page, created with the goal of being able to communicate with other users who have accessed the page to agree on the terms of a concert or, simply, to organise themselves to attend the performance together. 
 
 # Descrizione Pagine
 
 ![Image](img/Mappa.PNG)
 
-**Accesso**
+**Access**
 
-La pagina iniziale mostra il logo dell'applicazione seguito da una breve spiegazione di cosa fa il sito con accenno ai servizi
-principali. Alla fine dell'introduzione c'è il bottone che permette l'accesso a Spotify. Una volta eseguito il login, l'utente
-verrà reindirizzato alla pagina di "Ricerca Canzone".
+The homepage displays the application's logo, followed by a brief explanation of what the site does with access to the main services. At the end of the introduction, there is a button that allows you to visit Spotify. After completing the login process, the user will be sent to the "Ricerca Canzone" page.
 
 ![Image](img/Login_page.png)
 
-**Ricerca**
+**Research**
 
-La pagina presenta una semplice barra di ricerca dove andrà inserito il nome della canzone o dell'artista desiderato. Se questi
-ultimi esistono, allora l'utente verrà reindirizzato alla pagina "Ricerca+Risultato", in caso contrario comparirà una pagina 
-"404Traccia" che sta ad indicare che la ricerca eseguita non ha portato ad alcun risultato.
+The page has a simple search box where you can type in the name of the song or artist you're looking for. If these last two exist, the user will be redirected to the "Ricerca+Risultato" page; if they do not, the user will be redirected to the "404Traccia" page, which indicates that the search was unsuccessful.
 
 ![Image](img/Cerca1.png)
 
-**Risultato**
+**Results**
 
-La pagina presenterà ancora la barra di ricerca, utilizzabile nel caso in cui l'utente volesse cominciare una nuova ricerca, e 
-tutti i risultati prodotti dalla ricerca precedente.
-Ogni canzone trovata sarà costituita dalla copertina dell'album, il titolo della canzone, il nome dell'artista e il nome dell'album.
-Inoltre, se disponibile, si potrà ascoltare una preview di 30 secondi della canzone.
-Di seguito si avrà il link a Spotify, che permetterà di ascoltare l'intera canzone sulla piattaforma Spotify.
-Infine si ha il bottone "Cerca Concerti" tramite il quale si viene reindirizzati, se vi sono concerti in programma, alla pagina "Concerti", altrimenti, alla pagina "404Concerti" se la ricerca non ha portato alcun risultato.
+The page will also have a search box, which can be used to start a new search, as well as all of the previous search results.
+Each song will be identified by the album's cover art, the song's title, the artist's name, and the album's name.
+Furthermore, if available, a 30-second preview of the song will be available.
+Following that, there will be a link to Spotify, which will allow you to listen to the entire album on the platform. 
+Finally, there is the "Cerca Concerti" button, which redirects you to the "Concerti" page if there are any scheduled concerts, or to the "404Concerti" page if your search yielded no results.
 
 ![Image](img/Risultati_traccia.png)
 
-**Concerti**
+**Concerts**
 
-La pagina conterrà una lista di concerti con le relative informazioni riguardanti città e stato, data e luogo del concerto in 
-questione. Cliccando sul luogo è possibile ottenere un popup di una mappa con un segnaposto indicante il luogo dell'evento.
-In cima alla pagina si trovano due bottoni "Public Live Chat" e "Private Live Chat" che rimanderanno rispettivamente alle pagine
-"Chat Pubblica" e "Chat Privata" (cliccando sul bottone della chat pubblica verrò reindirizzato direttamente nella ChatRoom dell'artista).
-
+The page will include a list of upcoming concerts as well as pertinent information about the city and state, as well as the date and location of the event. By clicking on the location, a popup of a map with a marker indicating the event's location will appear.
+In the upper right corner of the page, there are two buttons labelled "Public Live Chat" and "Private Live Chat," which will redirect you to the pages "Chat Pubblica" and "Chat Privata," respectively (clicking on the "Public Live Chat" button will redirect you to the artist's ChatRoom).
 ![Image](img/Risultati_concerti.png)
 
-**Chat Pubblica**
+**Public Chat**
 
-La pagina è costituita da una ChatBox e una text area dove inserire il messaggio (Cliccando il bottone "?" ricevo info sui comandi
-da poter utilizzare nella chat).
-Sulla destra si avrà una lista di ChatRoom dove sarà indicato anche il numero di utenti online in essa.
-L'utente inizialmente si ritroverà all'interno della ChatRoom dell'artista cercato precedentemente, ma può decidere anche di 
-accedere ad una ChatRoom già esistente o crearne una nuova (/join nomechat).
-Se un utente entra o esce da una ChatRoom, la lista delle room viene aggiornata automaticamente (eliminazione ChatRoom, aggiornamento
-numero utenti, alert("nomeutente è entrato nella room", ecc.)
-Se in una chat, fatta accezione per quella aperta di default, non vi sono utenti, questa verrà automaticamente cancellata.
+
+The page is made up of a ChatBox and a text field where you can type your message (by using the "?" button, I got information on what commands I could use in the conversation).
+On the left, there will be a list of ChatRooms, with the number of users online in each listed.
+The user will first be sent to the artist's previously searched ChatRoom, but they may also choose to join an existing ChatRoom or create a new one (/join nomechat).
+When a user enters or exits a ChatRoom, the list of rooms is automatically updated (elimination of ChatRooms, updating the number of users, alert("nomeutente è entratto nella room," etc.).
+If there are no users in a conversation and you accept the default setting, the chat will be automatically cancelled.
 
 ![Image](img/pubblica.png)
 
-**Chat Privata**
+**Private Chat**
 
 La pagina presenta una ChatBox, una text area dove inserire il nickname della persona con cui si vuole comunicare, un bottone
 identificativo per l'utente loggato, una text area dove inserire il messaggio e il bottone d'invio.
@@ -93,23 +75,25 @@ Per poter comunicare con un altro utente è necessario però che anche quest'ult
 
 ![Image](img/privata.png)
 
-# Requisiti
+# Setup
 
-1. Installare Docker
+1. Install Docker
 [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 2. Docker Compose
 [Docker Compose](https://docs.docker.com/compose/install/)
 ****
-Nel file docker-compose.yml cambiare tutti i "volumes" con il proprio path, cioè il percorso in
-cui si trova la directory: 
-**"/ path  /ShareTheMusic:/home/node"**
----
-Esempio
-```bash
-      - /home/sveva/Desktop/University/ShareTheMusic:/home/node
+In the docker-compose.yml change all its "volumes" with own oath, i.e., the path in 
+which the directory is: 
+
+`/ path  /ShareTheMusic:/home/node`
+
+
+For example
+```
+/home/sveva/Desktop/University/ShareTheMusic:/home/node
 ```
 # Run
-```bash
+```
 docker-compose up
 ```
 
